@@ -4,7 +4,7 @@ CREATE TABLE tx_recipearpr_domain_model_recipe (
 	cooking_time double(11,2) NOT NULL DEFAULT '0.00',
 	preparation_time double(11,2) NOT NULL DEFAULT '0.00',
 	review_aggregate double(11,2) DEFAULT NULL,
-	steps varchar(255) NOT NULL DEFAULT '',
+	steps text,
 	nb_person varchar(255) NOT NULL DEFAULT '',
 	pictures int(11) unsigned NOT NULL DEFAULT '0',
 	difficulty double(11,2) NOT NULL DEFAULT '0.00',

@@ -17,38 +17,61 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <h1>Listing for Recipe</h1>
 
     <f:flashMessages />
-
-    <table class="tx_recipearpr">
-        <tr>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.name" /></th>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.dish_type" /></th>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.cooking_time" /></th>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.preparation_time" /></th>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.review_aggregate" /></th>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.steps" /></th>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.nb_person" /></th>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.pictures" /></th>
-            <th><f:translate key="tx_recipearpr_domain_model_recipe.difficulty" /></th>
-            <th></th>
-            <th></th>
-        </tr>
         <f:for each="{recipes}" as="recipe">
-            <tr>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.name}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.dishType}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.cookingTime}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.preparationTime}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.reviewAggregate}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.steps}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.nbPerson}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.pictures.originalResource.name}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{recipe : recipe}">{recipe.difficulty}</f:link.action></td>
-                <td><f:link.action action="edit" arguments="{recipe : recipe}">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{recipe : recipe}">Delete</f:link.action></td>
-            </tr>
+            <div class="frame-group-container">
+                <div class="frame-group-inner">
+                    <div class="frame-container frame-container-default">
+                        <div class="frame-inner">
+                            <div class="textpic textpic-centered textpic-right">
+                                <div class="textpic-item textpic-gallery">
+                                    <div class="gallery-row">
+                                        <div class="gallery-item gallery-item-size-1">
+                                            <figure class="image">
+                                                <picture>
+                                                    <source data-variant="default" data-maxwidth="620"
+                                                            media="(min-width: 1400px)"
+                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
+                                                    <source data-variant="xlarge" data-maxwidth="530"
+                                                            media="(min-width: 1200px)"
+                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
+                                                    <source data-variant="large" data-maxwidth="440"
+                                                            media="(min-width: 992px)"
+                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
+                                                    <source data-variant="medium" data-maxwidth="320"
+                                                            media="(min-width: 768px)"
+                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
+                                                    <source data-variant="small" data-maxwidth="500"
+                                                            media="(min-width: 576px)"
+                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
+                                                    <source data-variant="extrasmall" data-maxwidth="374"
+                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
+                                                    <img loading="lazy"
+                                                         src="/public/fileadmin/user_upload/burger-frites.jpg"
+                                                         intrinsicsize="1200x630" title="" alt="" width="1200" height="630">
+                                                </picture>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="textpic-item textpic-text"><h5><em><small>Vous aimez cuisiner des recettes
+                                    simples et rapides, ou au contraire raffinées, dignes des grands chefs ? Légères... ou
+                                    gourmandes ? Classiques ou originales ? Quelque soit votre idée, vous trouverez
+                                    forcément parmi nos meilleures recettes de quoi réaliser le menu idéal pour régaler vos
+                                    proches. Bon appétit !</small></em></h5>
+                                    <hr>
+                                    <h5><small><em>Grâce à nos pages de cuisine thématique, vous retrouverez facilement des
+                                        idées de&nbsp;<strong>recettes de saison</strong>, de&nbsp;<strong>cuisine
+                                            Végétarienne</strong>,&nbsp;<strong>italienne</strong>,&nbsp;<strong>orientale</strong>…&nbsp;des
+                                        recettes pour&nbsp;<strong>Noël</strong>, la&nbsp;<strong>Saint-Valentin</strong>,&nbsp;<strong>Halloween</strong>…
+                                        mais aussi des idées de recettes sympa pour vos&nbsp;<strong>enfants</strong>. Vous
+                                        allez enfin pouvoir cuisiner toutes vos envies ! Il ne vous reste plus qu’à vous
+                                        laisser tenter&nbsp;!</em></small></h5></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </f:for>
-    </table>
-
     <f:link.action action="new">New Recipe</f:link.action>
 </f:section>
 </html>

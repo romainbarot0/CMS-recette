@@ -111,6 +111,10 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     ['-- Label --', 0],
+                    ['Entrée', 1],
+                    ['Plat', 2],
+                    ['Dessert', 3],
+                    ['Apéro', 4],
                 ],
                 'size' => 1,
                 'maxitems' => 1,
@@ -148,11 +152,18 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:recipe_arpr/Resources/Private/Language/locallang_db.xlf:tx_recipearpr_domain_model_recipe.steps',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
+                'type' => 'text',
+                'enableRichtext' => true,
+                'fieldControl' => [
+                    'fullScreenRichtext' => [
+                        'disabled' => false,
+                    ],
+                ],
+                'cols' => 40,
+                'rows' => 15,
                 'eval' => 'trim,required',
-                'default' => ''
             ],
+            
         ],
         'nb_person' => [
             'exclude' => true,
