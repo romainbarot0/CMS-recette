@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:recipe_arpr/Resources/Private/Language/locallang.xlf" date="2022-05-12T12:09:12Z" product-name="recipe_arpr">
+		<header/>
+		<body>
+			<trans-unit id="tx_recipearpr_domain_model_recipe" resname="tx_recipearpr_domain_model_recipe">
+				<source>Recipe</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.name" resname="tx_recipearpr_domain_model_recipe.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.dish_type" resname="tx_recipearpr_domain_model_recipe.dish_type">
+				<source>Dish Type</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.cooking_time" resname="tx_recipearpr_domain_model_recipe.cooking_time">
+				<source>Cooking Time</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.preparation_time" resname="tx_recipearpr_domain_model_recipe.preparation_time">
+				<source>Preparation Time</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.review_aggregate" resname="tx_recipearpr_domain_model_recipe.review_aggregate">
+				<source>Review Aggregate</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.steps" resname="tx_recipearpr_domain_model_recipe.steps">
+				<source>Steps</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.nb_person" resname="tx_recipearpr_domain_model_recipe.nb_person">
+				<source>Nb Person</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.pictures" resname="tx_recipearpr_domain_model_recipe.pictures">
+				<source>Pictures</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.difficulty" resname="tx_recipearpr_domain_model_recipe.difficulty">
+				<source>Difficulty</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.ingredients" resname="tx_recipearpr_domain_model_recipe.ingredients">
+				<source>Ingredients</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.theme" resname="tx_recipearpr_domain_model_recipe.theme">
+				<source>Theme</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.ustencils" resname="tx_recipearpr_domain_model_recipe.ustencils">
+				<source>Ustencils</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.origin" resname="tx_recipearpr_domain_model_recipe.origin">
+				<source>Origin</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipe.reviews" resname="tx_recipearpr_domain_model_recipe.reviews">
+				<source>Reviews</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_ingredient" resname="tx_recipearpr_domain_model_ingredient">
+				<source>Ingredient</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_ingredient.name" resname="tx_recipearpr_domain_model_ingredient.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_ustencil" resname="tx_recipearpr_domain_model_ustencil">
+				<source>Ustencil</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_ustencil.name" resname="tx_recipearpr_domain_model_ustencil.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipeingredient" resname="tx_recipearpr_domain_model_recipeingredient">
+				<source>Recipe Ingredient</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipeingredient.quantity" resname="tx_recipearpr_domain_model_recipeingredient.quantity">
+				<source>Quantity</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_recipeingredient.ingredient" resname="tx_recipearpr_domain_model_recipeingredient.ingredient">
+				<source>Ingredient</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_origin" resname="tx_recipearpr_domain_model_origin">
+				<source>Origin</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_origin.name" resname="tx_recipearpr_domain_model_origin.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_theme" resname="tx_recipearpr_domain_model_theme">
+				<source>Theme</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_theme.name" resname="tx_recipearpr_domain_model_theme.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_review" resname="tx_recipearpr_domain_model_review">
+				<source>Review</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_review.title" resname="tx_recipearpr_domain_model_review.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_review.content" resname="tx_recipearpr_domain_model_review.content">
+				<source>Content</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_review.grade" resname="tx_recipearpr_domain_model_review.grade">
+				<source>Grade</source>
+			</trans-unit>
+			<trans-unit id="tx_recipearpr_domain_model_review.author" resname="tx_recipearpr_domain_model_review.author">
+				<source>Author</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

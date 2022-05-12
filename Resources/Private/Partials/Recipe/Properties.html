@@ -1,0 +1,42 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<table class="tx-recipe-arpr">
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.name" /></td>
+		<td>{recipe.name}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.dish_type" /></td>
+		<td>{recipe.dishType}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.cooking_time" /></td>
+		<td>{recipe.cookingTime}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.preparation_time" /></td>
+		<td>{recipe.preparationTime}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.review_aggregate" /></td>
+		<td>{recipe.reviewAggregate}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.steps" /></td>
+		<td>{recipe.steps}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.nb_person" /></td>
+		<td>{recipe.nbPerson}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.pictures" /></td>
+		<td>
+				<f:image src="{recipe.pictures.originalResource.publicUrl}" width="200"/>
+            </td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_recipearpr_domain_model_recipe.difficulty" /></td>
+		<td>{recipe.difficulty}</td>
+	</tr>
+</table>
+</html>

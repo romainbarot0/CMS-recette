@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:recipe_arpr/Resources/Private/Language/locallang_csh_tx_recipearpr_domain_model_recipe.xlf" date="2022-05-12T12:09:12Z" product-name="recipe_arpr">
+		<header/>
+		<body>
+			<trans-unit id="name.description" resname="name.description">
+				<source>nom de la recette</source>
+			</trans-unit>
+			<trans-unit id="dish_type.description" resname="dish_type.description">
+				<source>type de plat</source>
+			</trans-unit>
+			<trans-unit id="cooking_time.description" resname="cooking_time.description">
+				<source>Temps de cuisson (min)</source>
+			</trans-unit>
+			<trans-unit id="preparation_time.description" resname="preparation_time.description">
+				<source>Temps de préparation(min)</source>
+			</trans-unit>
+			<trans-unit id="review_aggregate.description" resname="review_aggregate.description">
+				<source>moyenne</source>
+			</trans-unit>
+			<trans-unit id="steps.description" resname="steps.description">
+				<source>etapes</source>
+			</trans-unit>
+			<trans-unit id="nb_person.description" resname="nb_person.description">
+				<source>nombre de personnes</source>
+			</trans-unit>
+			<trans-unit id="pictures.description" resname="pictures.description">
+				<source>illustrations</source>
+			</trans-unit>
+			<trans-unit id="difficulty.description" resname="difficulty.description">
+				<source>difficulte</source>
+			</trans-unit>
+			<trans-unit id="ingredients.description" resname="ingredients.description">
+				<source>ingredient</source>
+			</trans-unit>
+			<trans-unit id="theme.description" resname="theme.description">
+				<source>theme</source>
+			</trans-unit>
+			<trans-unit id="ustencils.description" resname="ustencils.description">
+				<source>ustencils</source>
+			</trans-unit>
+			<trans-unit id="origin.description" resname="origin.description">
+				<source>origine</source>
+			</trans-unit>
+			<trans-unit id="reviews.description" resname="reviews.description">
+				<source>avis</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

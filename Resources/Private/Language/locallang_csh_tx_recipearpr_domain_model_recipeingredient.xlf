@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:recipe_arpr/Resources/Private/Language/locallang_csh_tx_recipearpr_domain_model_recipeingredient.xlf" date="2022-05-12T12:09:12Z" product-name="recipe_arpr">
+		<header/>
+		<body>
+			<trans-unit id="quantity.description" resname="quantity.description">
+				<source>quantité</source>
+			</trans-unit>
+			<trans-unit id="ingredient.description" resname="ingredient.description">
+				<source>ingredient</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
