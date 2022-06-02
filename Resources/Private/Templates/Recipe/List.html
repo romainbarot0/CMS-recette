@@ -1,15 +1,15 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<f:layout name="Default"/>
 
 This template is responsible for creating a table of domain objects.
 
 If you modify this template, do not forget to change the overwrite settings
 in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Recipe:
-          List.html: keep
+Resources:
+Private:
+Templates:
+Recipe:
+List.html: keep
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
@@ -26,9 +26,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
         Type de plat : {typeOfDish}
     </f:if>
 
-    <f:flashMessages />
-        <f:for each="{recipes}" as="recipe">
-            <div class="frame-group-container">
+    <f:flashMessages/>
+    <f:for each="{recipes}" as="recipe">
+        <div class="frame frame-size-default frame-default frame-type-textpic frame-layout-embedded frame-background-light frame-no-backgroundimage">
+            <div class="frame-group-container fond-recette">
                 <div class="frame-group-inner">
                     <div class="frame-container frame-container-default">
                         <div class="frame-inner">
@@ -57,7 +58,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                                             srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
                                                     <img loading="lazy"
                                                          src="/public/fileadmin/user_upload/burger-frites.jpg"
-                                                         intrinsicsize="1200x630" title="" alt="" width="1200" height="630">
+                                                         intrinsicsize="1200x630" title="" alt="" width="1200"
+                                                         height="630">
                                                 </picture>
                                             </figure>
                                         </div>
@@ -66,12 +68,25 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                 <div class="textpic-item textpic-text">
                                     <h1>{recipe.name}</h1>
                                     <h5><em><small>
-                                        <p>Origine : <f:link.action action="list" arguments="{origin : recipe.origin}">{recipe.origin.name}</f:link.action></p>
-                                        <p>Type de plat : <f:link.action action="list" arguments="{typeOfDish : recipe.dishType}">{recipe.dishType}</f:link.action></p>
+                                        <p>Origine :
+                                            <f:link.action action="list" arguments="{origin : recipe.origin}">
+                                                {recipe.origin.name}
+                                            </f:link.action>
+                                        </p>
+                                        <p>Type de plat :
+                                            <f:link.action action="list" arguments="{typeOfDish : recipe.dishType}">
+                                                {recipe.dishType}
+                                            </f:link.action>
+                                        </p>
                                         <p>Temps de cuisson : {recipe.cookingTime}</p>
                                         <p>Temps de préparation : {recipe.preparationTime}</p>
                                         <p>Nombre de personnes : {recipe.nbPerson}</p>
                                         <p>Difficulté : {recipe.difficulty}</p>
+                                        <p>Thème(s) :
+                                            <f:for each="{recipe.theme}" as="theme">
+                                                {theme.name}
+                                            </f:for>
+                                        </p>
                                     </small></em></h5>
                                     <hr>
                                     <h5><small><em>
@@ -83,6 +98,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
                     </div>
                 </div>
             </div>
-        </f:for>
+        </div>
+    </f:for>
 </f:section>
 </html>

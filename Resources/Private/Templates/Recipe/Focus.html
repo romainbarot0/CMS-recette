@@ -1,23 +1,47 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+  <f:layout name="Default" />
 
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Recipe:
-          Focus.html: keep
+  If you modify this template, do not forget to change the overwrite settings
+  in /Configuration/ExtensionBuilder/settings.yaml:
+    Resources:
+      Private:
+        Templates:
+          Recipe:
+            Focus.html: keep
 
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+  Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
-<f:section name="content">
-  <h1>Mise en valeur de certaines recettes</h1>
-  <f:for each="{recipes}" as="recipe">
-    <h3>{recipe.name}</h3>
-    <f:for each="{recipe.theme}" as="theme">
-      {theme.name}
+  <f:section name="content">
+    <h1>Mise en valeur de certaines recettes</h1>
+    <f:for each="{recipes}" as="recipe">
+      <div class="frame frame-size-default frame-default frame-type-textpic frame-layout-embedded frame-background-light frame-no-backgroundimage">
+        <div class="frame-group-container fond-recette">
+          <div class="frame-group-inner">
+            <div class="frame-container frame-container-default">
+              <div class="frame-inner">
+                <div class="textpic">
+                  <div class="textpic-item textpic-text">
+                    <h1>{recipe.name}</h1>
+                    <h5><em><small>
+                      <p>Origine : {recipe.origin.name}</p>
+                      <p>Type de plat : {recipe.dishType}</p>
+                      <p>Temps de cuisson : {recipe.cookingTime}</p>
+                      <p>Temps de préparation : {recipe.preparationTime}</p>
+                      <p>Nombre de personnes : {recipe.nbPerson}</p>
+                      <p>Difficulté : {recipe.difficulty}</p>
+                      <p>Thème(s) :
+                        <f:for each="{recipe.theme}" as="theme">
+                          {theme.name}
+                        </f:for>
+                      </p>
+                    </small></em></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </f:for>
-  </f:for>
-</f:section>
+  </f:section>
 </html>
