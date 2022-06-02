@@ -14,7 +14,17 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Listing for Recipe</h1>
+    <h1>
+        Liste des recettes <br/>
+
+    </h1>
+    <h3>Filtres :</h3>
+    <f:if condition="{origin}">
+        Origine : {origin.name}
+    </f:if>
+    <f:if condition="{typeOfDish}">
+        Type de plat : {typeOfDish}
+    </f:if>
 
     <f:flashMessages />
         <f:for each="{recipes}" as="recipe">
@@ -53,25 +63,26 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="textpic-item textpic-text"><h5><em><small>Vous aimez cuisiner des recettes
-                                    simples et rapides, ou au contraire raffinées, dignes des grands chefs ? Légères... ou
-                                    gourmandes ? Classiques ou originales ? Quelque soit votre idée, vous trouverez
-                                    forcément parmi nos meilleures recettes de quoi réaliser le menu idéal pour régaler vos
-                                    proches. Bon appétit !</small></em></h5>
+                                <div class="textpic-item textpic-text">
+                                    <h1>{recipe.name}</h1>
+                                    <h5><em><small>
+                                        <p>Origine : <f:link.action action="list" arguments="{origin : recipe.origin}">{recipe.origin.name}</f:link.action></p>
+                                        <p>Type de plat : <f:link.action action="list" arguments="{typeOfDish : recipe.dishType}">{recipe.dishType}</f:link.action></p>
+                                        <p>Temps de cuisson : {recipe.cookingTime}</p>
+                                        <p>Temps de préparation : {recipe.preparationTime}</p>
+                                        <p>Nombre de personnes : {recipe.nbPerson}</p>
+                                        <p>Difficulté : {recipe.difficulty}</p>
+                                    </small></em></h5>
                                     <hr>
-                                    <h5><small><em>Grâce à nos pages de cuisine thématique, vous retrouverez facilement des
-                                        idées de&nbsp;<strong>recettes de saison</strong>, de&nbsp;<strong>cuisine
-                                            Végétarienne</strong>,&nbsp;<strong>italienne</strong>,&nbsp;<strong>orientale</strong>…&nbsp;des
-                                        recettes pour&nbsp;<strong>Noël</strong>, la&nbsp;<strong>Saint-Valentin</strong>,&nbsp;<strong>Halloween</strong>…
-                                        mais aussi des idées de recettes sympa pour vos&nbsp;<strong>enfants</strong>. Vous
-                                        allez enfin pouvoir cuisiner toutes vos envies ! Il ne vous reste plus qu’à vous
-                                        laisser tenter&nbsp;!</em></small></h5></div>
+                                    <h5><small><em>
+                                        {recipe.steps}
+                                    </em></small></h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </f:for>
-    <f:link.action action="new">New Recipe</f:link.action>
 </f:section>
 </html>

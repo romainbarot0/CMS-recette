@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Arpr\RecipeArpr\Controller;
 
 
+use Arpr\RecipeArpr\Controller\Queries\RecipeFilter;
+
 /**
  * This file is part of the "recipes-arpr" Extension for TYPO3 CMS.
  *
@@ -32,11 +34,26 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     protected $recipeRepository = null;
 
     /**
+     * themeRepository
+     *
+     * @var \Arpr\RecipeArpr\Domain\Repository\ThemeRepository
+     */
+    protected $themeRepository = null;
+
+    /**
      * @param \Arpr\RecipeArpr\Domain\Repository\RecipeRepository $recipeRepository
      */
     public function injectRecipeRepository(\Arpr\RecipeArpr\Domain\Repository\RecipeRepository $recipeRepository)
     {
         $this->recipeRepository = $recipeRepository;
+    }
+
+    /**
+     * @param \Arpr\RecipeArpr\Domain\Repository\ThemeRepository $themeRepository
+     */
+    public function injectThemeRepository(\Arpr\RecipeArpr\Domain\Repository\ThemeRepository $themeRepository)
+    {
+        $this->themeRepository = $themeRepository;
     }
 
     /**
@@ -52,12 +69,14 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     /**
      * action list
      *
+     * @param \Arpr\RecipeArpr\Domain\Model\Origin $origin
+     * @param int $typeOfDish
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function listAction(): \Psr\Http\Message\ResponseInterface
+    public function listAction(?\Arpr\RecipeArpr\Domain\Model\Origin $origin = null, int $typeOfDish = 0): \Psr\Http\Message\ResponseInterface
     {
-        $recipes = $this->recipeRepository->findAll();
-        $this->view->assign('recipes', $recipes);
+        $recipes = $this->recipeRepository->filter(new RecipeFilter($origin, $typeOfDish));
+        $this->view->assign('recipes', $recipes)->assign('origin', $origin)->assign('typeOfDish', $typeOfDish);
         return $this->htmlResponse();
     }
 
@@ -90,6 +109,13 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function focusAction(): \Psr\Http\Message\ResponseInterface
     {
+        $limit = (int) $this->settings['limit'];
+        $orderBy = (string) $this->settings['orderBy'];
+        $themes = array_map(static function ($x) {return intval($x);},
+            explode(',', $this->settings['themes']));
+        $themes = $this->themeRepository->findByUidList($themes)->toArray();
+        $recipes = $this->recipeRepository->focus($limit, $orderBy, $themes);
+        $this->view->assign('recipes', $recipes);
         return $this->htmlResponse();
     }
 }

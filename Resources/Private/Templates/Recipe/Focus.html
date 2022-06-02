@@ -12,6 +12,12 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Template for focus action</h1>
+  <h1>Mise en valeur de certaines recettes</h1>
+  <f:for each="{recipes}" as="recipe">
+    <h3>{recipe.name}</h3>
+    <f:for each="{recipe.theme}" as="theme">
+      {theme.name}
+    </f:for>
+  </f:for>
 </f:section>
 </html>

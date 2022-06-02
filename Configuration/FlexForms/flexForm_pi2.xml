@@ -1,0 +1,60 @@
+<T3DataStructure>
+    <sheets>
+        <!--
+            ################################
+              SHEET General Settings
+            ################################
+        -->
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Configuration</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.orderBy>
+                        <TCEforms>
+                            <label>Trier par :</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="1">
+                                        <numIndex index="0">Les mieux notées</numIndex>
+                                        <numIndex index="1">reviewAggregate</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2">
+                                        <numIndex index="0">Les nouveautés</numIndex>
+                                        <numIndex index="1">uid</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.orderBy>
+                    <settings.limit>
+                        <TCEforms>
+                            <label>Nombre de recettes</label>
+                            <config>
+                                <type>input</type>
+                                <size>2</size>
+                            </config>
+                        </TCEforms>
+                    </settings.limit>
+                    <settings.themes>
+                        <TCEforms>
+                            <label>Thèmes</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>tx_recipearpr_domain_model_theme</allowed>
+                                <size>2</size>
+                                <maxitems>10</maxitems>
+                                <minitems>0</minitems>
+                            </config>
+                        </TCEforms>
+                    </settings.themes>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
