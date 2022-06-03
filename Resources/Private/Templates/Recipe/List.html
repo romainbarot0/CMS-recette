@@ -16,7 +16,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="content">
     <h1>
         Liste des recettes <br/>
-
     </h1>
     <h3>Filtres :</h3>
     <f:if condition="{origin}">
@@ -38,29 +37,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                     <div class="gallery-row">
                                         <div class="gallery-item gallery-item-size-1">
                                             <figure class="image">
-                                                <picture>
-                                                    <source data-variant="default" data-maxwidth="620"
-                                                            media="(min-width: 1400px)"
-                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
-                                                    <source data-variant="xlarge" data-maxwidth="530"
-                                                            media="(min-width: 1200px)"
-                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
-                                                    <source data-variant="large" data-maxwidth="440"
-                                                            media="(min-width: 992px)"
-                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
-                                                    <source data-variant="medium" data-maxwidth="320"
-                                                            media="(min-width: 768px)"
-                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
-                                                    <source data-variant="small" data-maxwidth="500"
-                                                            media="(min-width: 576px)"
-                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
-                                                    <source data-variant="extrasmall" data-maxwidth="374"
-                                                            srcset="/public/fileadmin/user_upload/burger-frites.jpg 1x">
-                                                    <img loading="lazy"
-                                                         src="/public/fileadmin/user_upload/burger-frites.jpg"
-                                                         intrinsicsize="1200x630" title="" alt="" width="1200"
-                                                         height="630">
-                                                </picture>
+                                                <f:image image="{recipe.pictures}" />
                                             </figure>
                                         </div>
                                     </div>

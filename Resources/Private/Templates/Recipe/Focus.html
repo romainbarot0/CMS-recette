@@ -12,7 +12,9 @@
   Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
   <f:section name="content">
-    <h1>Mise en valeur de certaines recettes</h1>
+    <div class="d-flex justify-content-center rounded bg-projet pt-1 mt-4" style="background-color: #e9e9e9;">
+      <h1>Mise en valeur</h1>
+    </div>
     <f:for each="{recipes}" as="recipe">
       <div class="frame frame-size-default frame-default frame-type-textpic frame-layout-embedded frame-background-light frame-no-backgroundimage">
         <div class="frame-group-container fond-recette">
@@ -20,6 +22,15 @@
             <div class="frame-container frame-container-default">
               <div class="frame-inner">
                 <div class="textpic">
+                  <div class="textpic-item textpic-gallery">
+                    <div class="gallery-row">
+                      <div class="gallery-item gallery-item-size-1">
+                        <figure class="image">
+                          <f:image image="{recipe.pictures}" />
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
                   <div class="textpic-item textpic-text">
                     <h1>{recipe.name}</h1>
                     <h5><em><small>
