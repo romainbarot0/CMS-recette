@@ -1,4 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<head></head>
 <f:layout name="Default"/>
 
 This template is responsible for creating a table of domain objects.
@@ -17,7 +18,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <h1>
         Liste des recettes <br/>
     </h1>
-    <h3>Filtres :</h3>
+    <h3>Filtres : <small>(pour filtrer veuillez cliquer sur le filtre en question)</small></h3>
     <f:if condition="{origin}">
         Origine : {origin.name}
     </f:if>
@@ -66,9 +67,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                         </p>
                                     </small></em></h5>
                                     <hr>
-                                    <h5><small><em>
+                                    <h5><small><em class="text-etapes">
                                         {recipe.steps}
                                     </em></small></h5>
+                                    <em><small>
+                                       <f:link.action action="show" arguments="{recipe : recipe}">Voir plus</f:link.action>
+                                    </small></em>
+
+
                                 </div>
                             </div>
                         </div>
@@ -78,4 +84,5 @@ Otherwise your changes will be overwritten the next time you save the extension 
         </div>
     </f:for>
 </f:section>
+<f:asset.script identifier="yourIdentifier" src="EXT:my_ext/Resources/Private/Templates/Recipe/fileadmin/script.js"/>
 </html>

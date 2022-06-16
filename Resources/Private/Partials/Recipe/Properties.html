@@ -1,42 +1,101 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<table class="tx-recipe-arpr">
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.name" /></td>
-		<td>{recipe.name}</td>
-	</tr>
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.dish_type" /></td>
-		<td>{recipe.dishType}</td>
-	</tr>
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.cooking_time" /></td>
-		<td>{recipe.cookingTime}</td>
-	</tr>
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.preparation_time" /></td>
-		<td>{recipe.preparationTime}</td>
-	</tr>
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.review_aggregate" /></td>
-		<td>{recipe.reviewAggregate}</td>
-	</tr>
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.steps" /></td>
-		<td>{recipe.steps}</td>
-	</tr>
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.nb_person" /></td>
-		<td>{recipe.nbPerson}</td>
-	</tr>
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.pictures" /></td>
-		<td>
-				<f:image src="{recipe.pictures.originalResource.publicUrl}" width="200"/>
-            </td>
-	</tr>
-	<tr>
-		<td><f:translate key="tx_recipearpr_domain_model_recipe.difficulty" /></td>
-		<td>{recipe.difficulty}</td>
-	</tr>
-</table>
+<head>
+	<style type="text/css">
+		.button-save {
+			padding: 10px;
+			margin-top: 10px;
+			background-color: #acacac;
+			color: black;
+		}
+	</style>
+</head>
+<div class="frame frame-size-default frame-default frame-type-textpic frame-layout-embedded frame-background-light frame-no-backgroundimage">
+	<div class="frame-group-container fond-recette">
+		<div class="frame-group-inner">
+			<div class="frame-container frame-container-default">
+				<div class="frame-inner">
+					<div class="textpic textpic-centered textpic-right">
+						<div class="textpic-item textpic-gallery">
+							<div class="gallery-row">
+								<div class="gallery-item gallery-item-size-1">
+									<figure class="image">
+										<f:image image="{recipe.pictures}" />
+									</figure>
+								</div>
+							</div>
+						</div>
+						<div class="textpic-item textpic-text">
+							<h1>{recipe.name}</h1>
+							<h5><em><small>
+								<p>Origine :
+									<f:link.action action="list" arguments="{origin : recipe.origin}">
+										{recipe.origin.name}
+									</f:link.action>
+								</p>
+								<p>Type de plat :
+									<f:link.action action="list" arguments="{typeOfDish : recipe.dishType}">
+										{recipe.dishType}
+									</f:link.action>
+								</p>
+								<p>Temps de cuisson : {recipe.cookingTime}</p>
+								<p>Temps de préparation : {recipe.preparationTime}</p>
+								<p>Nombre de personnes : {recipe.nbPerson}</p>
+								<p>Difficulté : {recipe.difficulty}</p>
+								<p>Thème(s) :
+									<f:for each="{recipe.theme}" as="theme">
+										{theme.name}
+									</f:for>
+								</p>
+							</small></em></h5>
+							<hr>
+							<h5><small><em class="etapes">
+								{recipe.steps}
+							</em></small></h5>
+							<div class="d-flex flex-column align-items-center justify-content-center">
+								<div class="d-flex justify-content-between">
+									<label>
+										<h5><em><small>
+										Commentaire
+										</small></em></h5>
+										<input type="text"/>
+									</label>
+									<label style="margin-left: 20px">
+										<h5><em><small>
+											Note
+										</small></em></h5>
+										<input type="number"/>
+									</label>
+								</div>
+								<f:link.action action="newAction" arguments="{recipe : recipe}" class="button-save">Enregistrer</f:link.action>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function removeTags(str) {
+		if ((str===null) || (str===''))
+			return false;
+		else
+			str = str.toString();
+
+		// Regular expression to identify HTML tags in
+		// the input string. Replacing the identified
+		// HTML tag with a null string.
+		return str.replace( /(<([^>]+)>)/ig, '');
+	}
+
+	window.addEventListener('load', event => {
+		const elements = document.getElementsByClassName("etapes");
+		elements[0].textContent = removeTags(elements[0].textContent);
+		/*for (let item in elements){
+			console.log(item);
+			item.innerHTML = removeTags(item.innerHTML);
+		}*/
+	});
+
+</script>
 </html>
