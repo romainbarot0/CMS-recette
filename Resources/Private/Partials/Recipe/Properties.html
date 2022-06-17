@@ -27,16 +27,8 @@
 						<div class="textpic-item textpic-text">
 							<h1>{recipe.name}</h1>
 							<h5><em><small>
-								<p>Origine :
-									<f:link.action action="list" arguments="{origin : recipe.origin}">
-										{recipe.origin.name}
-									</f:link.action>
-								</p>
-								<p>Type de plat :
-									<f:link.action action="list" arguments="{typeOfDish : recipe.dishType}">
-										{recipe.dishType}
-									</f:link.action>
-								</p>
+								<p>Origine : {recipe.origin.name}</p>
+								<p>Type de plat : {recipe.dishType}</p>
 								<p>Temps de cuisson : {recipe.cookingTime}</p>
 								<p>Temps de préparation : {recipe.preparationTime}</p>
 								<p>Nombre de personnes : {recipe.nbPerson}</p>
@@ -52,21 +44,7 @@
 								{recipe.steps}
 							</em></small></h5>
 							<div class="d-flex flex-column align-items-center justify-content-center">
-								<div class="d-flex justify-content-between">
-									<label>
-										<h5><em><small>
-										Commentaire
-										</small></em></h5>
-										<input type="text"/>
-									</label>
-									<label style="margin-left: 20px">
-										<h5><em><small>
-											Note
-										</small></em></h5>
-										<input type="number"/>
-									</label>
-								</div>
-								<f:link.action action="newAction" arguments="{recipe : recipe}" class="button-save">Enregistrer</f:link.action>
+								<f:link.action action="new" arguments="{recipe : recipe}" class="button-save" controller="Review">Commenter</f:link.action>
 							</div>
 						</div>
 					</div>
@@ -74,6 +52,33 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div class="comment" name="comment">
+	<h1>Commentaire(s)</h1>
+	<f:if condition="{recipe.reviews}">
+		<f:then>
+			<f:for each="{recipe.reviews}" as="review">
+				<div class="frame frame-size-default frame-default frame-type-textpic frame-layout-embedded frame-background-light frame-no-backgroundimage">
+					<div class="frame-group-container fond-recette">
+						<div class="frame-group-inner">
+							<div class="frame-container frame-container-default">
+								<div class="frame-inner">
+									<div class="textpic textpic-centered textpic-right">
+										<div class="textpic-item textpic-text">
+											<h1>{review.title}</h1>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</f:for>
+		</f:then>
+		<f:else>
+			<h3>Aucun commentaire</h3>
+		</f:else>
+	</f:if>
 </div>
 <script>
 	function removeTags(str) {

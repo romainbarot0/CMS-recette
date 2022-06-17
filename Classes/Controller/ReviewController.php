@@ -25,12 +25,44 @@ class ReviewController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 {
 
     /**
+     * recipeRepository
+     *
+     * @var \Arpr\RecipeArpr\Domain\Repository\RecipeRepository
+     */
+    protected $recipeRepository = null;
+
+    /**
+     * reviewRepository
+     *
+     * @var \Arpr\RecipeArpr\Domain\Repository\ReviewRepository
+     */
+    protected $reviewRepository = null;
+
+    /**
+     * @param \Arpr\RecipeArpr\Domain\Repository\RecipeRepository $recipeRepository
+     */
+    public function injectRecipeRepository(\Arpr\RecipeArpr\Domain\Repository\RecipeRepository $recipeRepository)
+    {
+        $this->recipeRepository = $recipeRepository;
+    }
+
+    /**
+     * @param \Arpr\RecipeArpr\Domain\Repository\ReviewRepository $reviewRepository
+     */
+    public function injectReviewRepository(\Arpr\RecipeArpr\Domain\Repository\ReviewRepository $reviewRepository)
+    {
+        $this->reviewRepository = $reviewRepository;
+    }
+
+    /**
      * action new
      *
+     * @param \Arpr\RecipeArpr\Domain\Model\Recipe $recipe
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function newAction(): \Psr\Http\Message\ResponseInterface
+    public function newAction(\Arpr\RecipeArpr\Domain\Model\Recipe $recipe): \Psr\Http\Message\ResponseInterface
     {
+        $this->view->assign('recipe', $recipe);
         return $this->htmlResponse();
     }
 
@@ -38,11 +70,12 @@ class ReviewController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * action create
      *
      * @param \Arpr\RecipeArpr\Domain\Model\Review $newReview
+     * @param \Arpr\RecipeArpr\Domain\Model\Recipe $recipe
      */
-    public function createAction(\Arpr\RecipeArpr\Domain\Model\Review $newReview)
+    public function createAction(\Arpr\RecipeArpr\Domain\Model\Review $newReview, \Arpr\RecipeArpr\Domain\Model\Recipe $recipe)
     {
-        $this->addFlashMessage('The object was created. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/p/friendsoftypo3/extension-builder/master/en-us/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
         $this->reviewRepository->add($newReview);
-        $this->redirect('list');
+        $recipe->addReview($newReview);
+        $this->redirect('list', 'Recipe');
     }
 }

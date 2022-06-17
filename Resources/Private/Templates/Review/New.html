@@ -14,15 +14,17 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>New Review</h1>
-
+    <h1>Nouveau commentaire/note pour la recette {recipe.name}</h1>
+    <figure style="width: 300px;">
+        <f:image image="{recipe.pictures}" />
+    </figure>
     <f:flashMessages />
 
     <f:render partial="FormErrors" />
 
-    <f:form action="create" name="newReview" object="{newReview}">
-    <f:render partial="Review/FormFields" />
-    <f:form.submit value="Create new" />
+    <f:form action="create" name="newReview" object="{newReview}" arguments="{recipe: recipe}">
+        <f:render partial="Review/FormFields" arguments="{recipe: recipe}"/>
+        <f:form.submit value="Create new"/>
     </f:form>
 </f:section>
 </html>
