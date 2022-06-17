@@ -18,6 +18,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <h1>
         Liste des recettes <br/>
     </h1>
+    <f:form action="search" name="recipeSearch" method="post">
+        <f:form.textfield name="search" placeholder="Chercher une recette" />
+        <f:form.submit value="Rechercher" />
+    </f:form>
     <h3>Filtres : <small>(pour filtrer veuillez cliquer sur le filtre en question)</small></h3>
     <f:if condition="{origin}">
         Origine : {origin.name}
@@ -73,8 +77,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                     <em><small>
                                        <f:link.action action="show" arguments="{recipe : recipe}">Voir plus</f:link.action>
                                     </small></em>
-
-
                                 </div>
                             </div>
                         </div>

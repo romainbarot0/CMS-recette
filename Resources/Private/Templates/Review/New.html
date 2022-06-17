@@ -23,7 +23,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
     <f:render partial="FormErrors" />
 
     <f:form action="create" name="newReview" object="{newReview}" arguments="{recipe: recipe}">
-        <f:render partial="Review/FormFields" arguments="{recipe: recipe}"/>
+        <f:render partial="Review/FormFields"/>
         <f:form.submit value="Create new"/>
     </f:form>
 </f:section>

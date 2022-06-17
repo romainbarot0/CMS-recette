@@ -99,6 +99,10 @@ class RecipeController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function searchAction(): \Psr\Http\Message\ResponseInterface
     {
+        $request = $this->request->getArguments();
+        $keyword = $request['search'];
+        $recipes = $this->recipeRepository->searchByName($keyword);
+        $this->view->assign('recipes', $recipes);
         return $this->htmlResponse();
     }
 

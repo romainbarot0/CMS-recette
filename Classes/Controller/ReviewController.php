@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Arpr\RecipeArpr\Controller;
 
 
+use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
+
 /**
  * This file is part of the "recipes-arpr" Extension for TYPO3 CMS.
  *
@@ -12,9 +14,9 @@ namespace Arpr\RecipeArpr\Controller;
  * LICENSE.txt file that was distributed with this source code.
  *
  * (c) 2022 BarotRomain <romain.barot@etu.u-bordeaux.fr>
- *          ColinPierre <pierre.colin@etu.u-bordeaux.fr>
+ *          "ColinPierre <pierre.colin@etu.u-bordeaux.fr>
  *          HoupinArmand <armand.houpin@etu.u-bordeaux.fr>
- *          FaucherRobin <robin.faucher@etu.u-bordeaux.fr>
+ *          FaucherRobin <robin.faucher@etu.u-bordeaux.fr>"
  */
 
 
@@ -23,6 +25,11 @@ namespace Arpr\RecipeArpr\Controller;
  */
 class ReviewController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface
+     */
+    protected $persistenceManager;
 
     /**
      * recipeRepository
@@ -37,6 +44,14 @@ class ReviewController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @var \Arpr\RecipeArpr\Domain\Repository\ReviewRepository
      */
     protected $reviewRepository = null;
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface $persistenceManager
+     */
+    public function injectPersistenceManager(PersistenceManagerInterface $persistenceManager)
+    {
+        $this->persistenceManager = $persistenceManager;
+    }
 
     /**
      * @param \Arpr\RecipeArpr\Domain\Repository\RecipeRepository $recipeRepository
@@ -74,8 +89,11 @@ class ReviewController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function createAction(\Arpr\RecipeArpr\Domain\Model\Review $newReview, \Arpr\RecipeArpr\Domain\Model\Recipe $recipe)
     {
+        $cacheService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Extbase\Service\CacheService');
         $this->reviewRepository->add($newReview);
         $recipe->addReview($newReview);
+        $this->persistenceManager->update($recipe);
+        $cacheService->clearPageCache(85);
         $this->redirect('list', 'Recipe');
     }
 }

@@ -57,4 +57,18 @@ class RecipeRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         return $query->execute();
     }
+
+    public function searchByName($name): array
+    {
+        $recipes = $this->findAll()->toArray();
+        $matches = array();
+
+        foreach($recipes as $recipe){
+            if(str_contains(strtolower($recipe->getName()), strtolower($name)) ||
+                str_contains(strtolower($recipe->getOrigin()->getName()), strtolower($name)) ||
+                  str_contains(strval($recipe->getNbPerson()), strtolower($name)))
+                $matches[] = $recipe;
+        }
+        return $matches;
+    }
 }

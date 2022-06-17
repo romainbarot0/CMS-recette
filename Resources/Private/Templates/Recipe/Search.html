@@ -12,6 +12,51 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-    <h1>Template for search action</h1>
+    <f:link.action action="list">Retour à la liste des recettes</f:link.action>
+    <h1>Résultats de votre recherche</h1>
+    <f:for each="{recipes}" as="recipe">
+      <div class="frame frame-size-default frame-default frame-type-textpic frame-layout-embedded frame-background-light frame-no-backgroundimage">
+        <div class="frame-group-container fond-recette">
+          <div class="frame-group-inner">
+            <div class="frame-container frame-container-default">
+              <div class="frame-inner">
+                <div class="textpic textpic-centered textpic-right">
+                  <div class="textpic-item textpic-gallery">
+                    <div class="gallery-row">
+                      <div class="gallery-item gallery-item-size-1">
+                        <figure class="image">
+                          <f:image image="{recipe.pictures}" />
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="textpic-item textpic-text">
+                    <h1>{recipe.name}</h1>
+                    <h5><em><small>
+                      <p>Origine : {recipe.origin.name}</p>
+                      <p>Type de plat : {recipe.dishType}</p>
+                      <p>Temps de cuisson : {recipe.cookingTime}</p>
+                      <p>Temps de préparation : {recipe.preparationTime}</p>
+                      <p>Nombre de personnes : {recipe.nbPerson}</p>
+                      <p>Difficulté : {recipe.difficulty}</p>
+                      <p>Thème(s) :
+                        <f:for each="{recipe.theme}" as="theme">
+                          {theme.name}
+                        </f:for>
+                      </p>
+                    </small></em></h5>
+                    <hr>
+                    <h5><small><em class="etapes">
+                      {recipe.steps}
+                    </em></small></h5>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </f:for>
 </f:section>
 </html>
